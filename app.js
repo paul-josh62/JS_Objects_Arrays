@@ -3,30 +3,15 @@ console.log("Hello World!\n==========\n");
 // Exercise 1 Section
 console.log("EXERCISE 1:\n==========\n");
 
-/*const number = new Array(7);
+/*const numbers = [2, 22, 12, 17, 18, 39, 129]; 
 
-number[0] = 2;
-number[1] = 22;
-number[2] = 12;
-number[3] = 17;
-number[4] = 18;
-number[5] = 39;
-number[6] = 129;*/
-
-
-let num = [2, 22, 12, 17, 18, 39, 129]; 
-
-let arraySum = 0;
-  function arraySum(arrOfNum){
-      console.log("arrrOfNum", arrOfNum);
-      arrOfNum.foreach((number, index) => sumOfValues += num, {
-        sumOfValues = sumOfValues + number,
-     };
-      console.log("sumOfValues:", sumOfValues);
-     return sumOfValues;
-    } 
+let sumOfValues = 0;
+function arraySum(arrOfNum) {
+    arrOfNum.foreach((number) => sumOfValues += number);
+    return sumOfValues;
+} 
     
-    console.log(arraySum(num));
+console.log(arraySum(numbers));*/
 
       
 
@@ -38,6 +23,7 @@ let arraySum = 0;
 //Exercise 2 Section
 console.log("EXERCISE 2:\n==========\n");
 
+const book = {
   title: "",
   author: "",
   numPagesRead: null,
@@ -52,7 +38,11 @@ book.info = function(){
   return `${this.title}, ${this.numPages} pages, read ${this.readCount}`
 };
 
-console.log(book.info)
+console.log(book.title);
+console.log(book.numPages);
+
+console.log(book.info());
+
 
 // Exercise 3 Section
 console.log("EXERCISE 3:\n==========\n");
@@ -60,22 +50,52 @@ console.log("EXERCISE 3:\n==========\n");
 
 let sentence = "The quick brown fox jumps over the lazy dog";
 
-const myWord = "something";
-
-const charArr = myWord.split('')
-
-console.log(charArr);
-
-let reversedWord = "";
-
-for (let i = 0; i < charArr.length; i++){
-  console.log(charArr[i], i);
+let splitUpWords = sentence.split(" ");
+let result = "";
+for (let word of splitUpWords){
+    let myReversedWord = " ";
+    for (let i = word.length - 1; i >= 0; i--){
+    myReversedWord += word[i];
+    }
+    result += (myReversedWord + "");
 }
+console.log(result.trim());
+
+/*let myWord = "something";
+
+let myReversedWord = "";
+for (let i = myWord.length - 1; i >= 0; i--){
+  myReversedWord += myWord[i];
+}
+
+const charArr = myWord.split('');
+
+let myReversedString = "";
+
+for (let i = charArr.length - 1; i >= 0; i--){
+  myReversedString += charArr[i];
+}*/
+
+
 
 // Exercise 4 Section
 console.log("EXERCISE 4:\n==========\n");
 
+let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
 
+let dataSplit = csvData.split("\n");
+const headers = dataSplit[0].split(",");
+console.log(headers);
+const resultObjects = [];
 
+for (i = 1; i < dataSplit.length; i++){
+  const values = dataSplit[i].split(",");
+  let obj = {};
+  for (let j = 0; j < headers.length; j++){
+      obj[headers[j]] - values[j];
+  }
+  console.log(obj);
+  resultObjects.push(obj);
+}
 
-
+console.log(resultObjects);
